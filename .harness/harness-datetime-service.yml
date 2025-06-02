@@ -36,5 +36,8 @@ pipeline:
                   name: build jar
                   identifier: build_jar
                   spec:
+                    connectorRef: dockerHub
+                    image: gradle:8.14-jdk21-jammy
                     shell: Bash
-                    command: ./gradlew build -x test
+                    command: gradlew build -x test
+                    imagePullPolicy: IfNotPresent
