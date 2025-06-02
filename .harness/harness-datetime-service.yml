@@ -47,7 +47,7 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: dockerHub
-                    repo: harness-datetime-service
+                    repo: ajpahl1008/harness-datetime-service
                     tags:
                       - 1.<+pipeline.sequenceId>
                     caching: true
