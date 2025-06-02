@@ -37,4 +37,4 @@ pipeline:
                   identifier: build_jar
                   spec:
                     shell: Bash
-                    command: gradle build -x test
+                    command: gradlew build -x test
