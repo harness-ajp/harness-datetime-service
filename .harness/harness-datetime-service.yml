@@ -39,5 +39,5 @@ pipeline:
                     connectorRef: dockerHub
                     image: gradle:8.14-jdk21-jammy
                     shell: Bash
-                    command: gradlew build -x test
+                    command: gradle build -x test
                     imagePullPolicy: IfNotPresent
