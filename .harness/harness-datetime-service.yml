@@ -41,26 +41,6 @@ pipeline:
                     shell: Bash
                     command: gradle build -x test
                     imagePullPolicy: IfNotPresent
-    - stage:
-        name: DockerDeploy
-        identifier: DockerDeploy
-        description: ""
-        type: CI
-        spec:
-          cloneCodebase: false
-          caching:
-            enabled: true
-            override: false
-          buildIntelligence:
-            enabled: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
-          execution:
-            steps:
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
