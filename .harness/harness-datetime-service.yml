@@ -42,12 +42,12 @@ pipeline:
                     command: gradle build -x test
                     imagePullPolicy: IfNotPresent
     - stage:
-        name: pushToHub
-        identifier: pushToHub
+        name: DockerDeploy
+        identifier: DockerDeploy
         description: ""
         type: CI
         spec:
-          cloneCodebase: true
+          cloneCodebase: false
           caching:
             enabled: true
             override: false
@@ -67,7 +67,7 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: dockerHub
-                    repo: ajpahl1008/harness-datetime-service
+                    repo: harness-datetime-service
                     tags:
                       - 1.<+pipeline.sequenceId>
                     caching: true
