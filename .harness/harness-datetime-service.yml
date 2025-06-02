@@ -1,0 +1,40 @@
+pipeline:
+  name: harness-datetime-service
+  identifier: harnessdatetimeservice
+  projectIdentifier: AJPahl_Sandbox
+  orgIdentifier: sandbox
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: ajgithubconnector
+        repoName: harness-datetime-service
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: build jar
+                  identifier: build_jar
+                  spec:
+                    shell: Sh
+                    command: gradle build -x test
