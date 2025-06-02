@@ -36,5 +36,7 @@ pipeline:
                   name: build jar
                   identifier: build_jar
                   spec:
+                    connectorRef: account.harnessImage
+                    image: gradle:8.13-jdk-17
                     shell: Bash
                     command: ./gradlew build -x test
