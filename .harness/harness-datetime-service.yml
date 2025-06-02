@@ -41,3 +41,33 @@ pipeline:
                     shell: Bash
                     command: gradle build -x test
                     imagePullPolicy: IfNotPresent
+    - stage:
+        name: pushToHub
+        identifier: pushToHub
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: dockerHub
+                    repo: ajpahl1008/harness-datetime-service
+                    tags:
+                      - 1.<+pipeline.sequenceId>
+                    caching: true
