@@ -1,0 +1,6 @@
+environment:
+  name: QA
+  identifier: QA
+  orgIdentifier: sandbox
+  projectIdentifier: AJPahl_Sandbox
+  type: PreProduction
