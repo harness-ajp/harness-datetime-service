@@ -31,16 +31,28 @@ pipeline:
             spec: {}
           execution:
             steps:
-              - step:
-                  type: Run
-                  name: build jar
-                  identifier: build_jar
-                  spec:
-                    connectorRef: dockerHub
-                    image: gradle:8.14-jdk21-jammy
-                    shell: Bash
-                    command: gradle build -x test
-                    imagePullPolicy: IfNotPresent
+              - stepGroup:
+                  name: Build-Test
+                  identifier: BuildTest
+                  steps:
+                    - parallel:
+                        - step:
+                            type: Run
+                            name: RunNoTests
+                            identifier: build_jar
+                            spec:
+                              connectorRef: dockerHub
+                              image: gradle:8.14-jdk21-jammy
+                              shell: Bash
+                              command: gradle build -x test
+                              imagePullPolicy: IfNotPresent
+                        - step:
+                            type: Run
+                            name: RunWithTests
+                            identifier: RunWithTests
+                            spec:
+                              shell: Sh
+                              command: gradle build
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
