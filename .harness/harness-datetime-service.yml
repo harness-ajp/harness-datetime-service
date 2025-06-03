@@ -51,8 +51,11 @@ pipeline:
                             name: RunWithTests
                             identifier: RunWithTests
                             spec:
-                              shell: Sh
+                              connectorRef: dockerHub
+                              image: gradle:8.14-jdk21-jammy
+                              shell: Bash
                               command: gradle build
+                              imagePullPolicy: IfNotPresent
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
