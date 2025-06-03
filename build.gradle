@@ -6,8 +6,8 @@ plugins {
 
 java {
     java {
-        sourceCompatibility = JavaVersion.VERSION_17 // Set source level
-        targetCompatibility = JavaVersion.VERSION_17 // Set bytecode level
+        sourceCompatibility = JavaVersion.VERSION_21 // Set source level
+        targetCompatibility = JavaVersion.VERSION_21 // Set bytecode level
     }
 }
 

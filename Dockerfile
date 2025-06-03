@@ -1,5 +1,5 @@
 # Use lightweight JVM base image
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 
 # Set working directory
 WORKDIR /app
