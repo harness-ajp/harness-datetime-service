@@ -5,7 +5,7 @@ FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
 # Copy the JAR file
-COPY build/libs/datetime-service-*-SNAPSHOT.jar /app/app.jar
+COPY build/libs/harness-datetime-service-*-SNAPSHOT.jar /app/app.jar
 
 # Run the JAR
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
