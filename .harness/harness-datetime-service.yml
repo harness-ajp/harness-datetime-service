@@ -23,12 +23,6 @@ pipeline:
             override: false
           buildIntelligence:
             enabled: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
           execution:
             steps:
               - stepGroup:
@@ -66,3 +60,11 @@ pipeline:
                     tags:
                       - 1.<+pipeline.sequenceId>
                     caching: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: ajlocalk8s
+              namespace: rockwad
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
