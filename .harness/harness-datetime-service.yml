@@ -90,6 +90,12 @@ pipeline:
                   spec:
                     skipDryRun: false
                     pruningEnabled: true
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - DelegateProvisioning
+                        action:
+                          type: StageRollback
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
