@@ -8,8 +8,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 5000
-      targetPort: 5000
+    - port: 8080
+      targetPort: 8080
       protocol: TCP
   selector:
     app: harness-datetime-service-deployment
