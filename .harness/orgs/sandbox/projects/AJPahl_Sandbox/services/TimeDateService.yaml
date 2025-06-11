@@ -4,5 +4,35 @@ service:
   orgIdentifier: sandbox
   projectIdentifier: AJPahl_Sandbox
   serviceDefinition:
-    spec: {}
+    spec:
+      manifests:
+        - manifest:
+            identifier: TimeDateServiceManifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: ajgithubconnector
+                  gitFetchType: Branch
+                  paths:
+                    - .harness/kubernetes/harness-datetime-service-deployment.yaml
+                    - .harness/kubernetes/harness-datetime-service-deployment-service.yaml
+                  repoName: harness-datetime-service
+                  branch: main
+              valuesPaths:
+                - .harness/kubernetes/harness-datetime-service-values.yaml
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: dockerHub
+                imagePath: ajpahl1008/harness-datetime-service
+                tag: <+input>
+                digest: ""
+              identifier: HarnessTimeDateArtifact
+              type: DockerRegistry
     type: Kubernetes
