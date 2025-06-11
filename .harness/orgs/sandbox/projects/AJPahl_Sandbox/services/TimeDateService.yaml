@@ -3,3 +3,6 @@ service:
   identifier: TimeDateService
   orgIdentifier: sandbox
   projectIdentifier: AJPahl_Sandbox
+  serviceDefinition:
+    spec: {}
+    type: Kubernetes
