@@ -1,0 +1,1 @@
+image: ajpahl1008/harness-datetime-service:<+pipeline.sequenceId>
