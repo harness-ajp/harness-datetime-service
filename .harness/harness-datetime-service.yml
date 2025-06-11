@@ -89,7 +89,7 @@ pipeline:
                   timeout: 10m
                   spec:
                     skipDryRun: false
-                    pruningEnabled: false
+                    pruningEnabled: true
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
