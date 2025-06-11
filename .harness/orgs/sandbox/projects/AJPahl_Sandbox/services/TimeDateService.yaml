@@ -25,14 +25,5 @@ service:
               skipResourceVersioning: false
               enableDeclarativeRollback: false
       artifacts:
-        primary:
-          primaryArtifactRef: <+input>
-          sources:
-            - spec:
-                connectorRef: dockerHub
-                imagePath: ajpahl1008/harness-datetime-service
-                tag: <+input>
-                digest: ""
-              identifier: HarnessTimeDateArtifact
-              type: DockerRegistry
+        primary: {}
     type: Kubernetes
