@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: harness-datetime-service-deployment
-  namespace: aj
+  namespace: rockwad
 spec:
   replicas: 2
   selector:

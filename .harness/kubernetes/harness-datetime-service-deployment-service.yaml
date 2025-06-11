@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: harness-datetime-service-deployment-service
-  namespace: aj
+  namespace: rockwad
   annotations:
     cloud.google.com/neg: '{"ingress":true}'
 spec:
