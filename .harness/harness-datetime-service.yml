@@ -60,12 +60,14 @@ pipeline:
                     tags:
                       - 1.<+pipeline.sequenceId>
                     caching: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: ajlocalk8s
+              namespace: rockwad
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
     - stage:
         name: Lab K8S Deploy
         identifier: Lab_K8S_Deploy
