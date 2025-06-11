@@ -75,14 +75,6 @@ pipeline:
           deploymentType: Kubernetes
           service:
             serviceRef: TimeDateService
-            serviceInputs:
-              serviceDefinition:
-                type: Kubernetes
-                spec:
-                  artifacts:
-                    primary:
-                      primaryArtifactRef: <+input>
-                      sources: <+input>
           environment:
             environmentRef: DEV
             deployToAll: false
