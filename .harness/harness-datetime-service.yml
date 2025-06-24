@@ -60,6 +60,13 @@ pipeline:
                     tags:
                       - 1.<+pipeline.sequenceId>
                     caching: true
+              - step:
+                  type: Run
+                  name: Run_3
+                  identifier: Run_3
+                  spec:
+                    shell: Sh
+                    command: echo "hello"
           platform:
             os: Linux
             arch: Arm64
