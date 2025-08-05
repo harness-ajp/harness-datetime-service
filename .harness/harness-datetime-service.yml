@@ -96,7 +96,7 @@ pipeline:
                   timeout: 10m
                   spec:
                     filePaths:
-                      - ./harness/kubernetes/harness-datetime-service-namespace.yaml
+                      - .harness/kubernetes/harness-datetime-service-namespace.yaml
                     skipDryRun: false
                     skipRendering: false
                     skipSteadyStateCheck: false
