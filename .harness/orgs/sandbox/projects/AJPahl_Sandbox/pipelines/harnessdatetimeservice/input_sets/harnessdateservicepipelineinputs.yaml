@@ -1,0 +1,25 @@
+inputSet:
+  pipeline:
+    identifier: harnessdatetimeservice
+    properties:
+      ci:
+        codebase:
+          build:
+            spec:
+              branch: main
+            type: branch
+    stages:
+      - stage:
+          identifier: create_namespace
+          type: Deployment
+          spec:
+            service:
+              serviceRef: TimeDateService
+            environment:
+              environmentRef: DEV
+              infrastructureDefinitions:
+                - identifier: ajlocalk8s
+  name: harness-date-service-pipeline-inputs
+  identifier: harnessdateservicepipelineinputs
+  orgIdentifier: sandbox
+  projectIdentifier: AJPahl_Sandbox
