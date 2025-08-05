@@ -1,3 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rockwad
 apiVersion: apps/v1
 kind: Deployment
 metadata:
