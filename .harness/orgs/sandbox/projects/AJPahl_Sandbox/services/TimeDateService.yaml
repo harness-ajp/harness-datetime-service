@@ -18,6 +18,7 @@ service:
                   paths:
                     - .harness/kubernetes/harness-datetime-service-deployment.yaml
                     - .harness/kubernetes/harness-datetime-service-deployment-service.yaml
+                    - .harness/kubernetes/harness-datetime-service-namespace.yaml
                   repoName: harness-datetime-service
                   branch: main
               valuesPaths:
