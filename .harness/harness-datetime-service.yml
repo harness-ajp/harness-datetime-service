@@ -3,7 +3,8 @@ pipeline:
   identifier: harnessdatetimeservice
   projectIdentifier: AJPahl_Sandbox
   orgIdentifier: sandbox
-  tags: {}
+  tags:
+    ai_generated: "true"
   properties:
     ci:
       codebase:
@@ -67,6 +68,38 @@ pipeline:
             type: Cloud
             spec: {}
     - stage:
+        name: Create Namespace
+        identifier: create_namespace
+        type: Deployment
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: <+input>
+          environment:
+            environmentRef: <+input>
+            deployToAll: false
+            infrastructureDefinitions: <+input>
+          execution:
+            steps:
+              - step:
+                  identifier: create_k8s_namespace
+                  name: Create K8s Namespace
+                  type: K8sApply
+                  timeout: 10m
+                  spec:
+                    filePaths:
+                      - namespace.yaml
+                    skipDryRun: false
+                    skipRendering: false
+                    skipSteadyStateCheck: false
+            rollbackSteps: []
+    - stage:
         name: Lab K8S Deploy
         identifier: Lab_K8S_Deploy
         description: ""
@@ -111,3 +144,4 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+  description: This pipeline was updated by Harness AI on 2025-08-05 15:52:31 UTC by anthony.pahl@harness.io.
