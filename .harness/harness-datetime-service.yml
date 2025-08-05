@@ -84,6 +84,8 @@ pipeline:
           environment:
             environmentRef: <+input>
             deployToAll: false
+            environmentInputs: <+input>
+            serviceOverrideInputs: <+input>
             infrastructureDefinitions: <+input>
           execution:
             steps:
@@ -94,11 +96,13 @@ pipeline:
                   timeout: 10m
                   spec:
                     filePaths:
-                      - namespace.yaml
+                      - ./harness/kubernetes/harness-datetime-service-namespace.yaml
                     skipDryRun: false
                     skipRendering: false
                     skipSteadyStateCheck: false
+                    overrides: []
             rollbackSteps: []
+        tags: {}
     - stage:
         name: Lab K8S Deploy
         identifier: Lab_K8S_Deploy
