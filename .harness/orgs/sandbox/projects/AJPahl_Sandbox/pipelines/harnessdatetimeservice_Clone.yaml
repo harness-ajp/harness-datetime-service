@@ -2,7 +2,7 @@ pipeline:
   projectIdentifier: AJPahl_Sandbox
   orgIdentifier: sandbox
   tags:
-    LEGACY: ""
+    LEGACY: "true"
   properties:
     ci:
       codebase:
@@ -111,6 +111,5 @@ pipeline:
               action:
                 type: StageRollback
   identifier: harnessdatetimeservice_Clone
-  description: This pipeline was updated by Harness AI on 2025-08-05 15:52:31 UTC
-    by anthony.pahl@harness.io.
+  description: This pipeline was updated by Harness AI on 2025-08-05 15:52:31 UTC by anthony.pahl@harness.io.
   name: harness-datetime-service - Clone
