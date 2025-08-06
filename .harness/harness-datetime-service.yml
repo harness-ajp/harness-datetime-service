@@ -4,7 +4,7 @@ pipeline:
   projectIdentifier: AJPahl_Sandbox
   orgIdentifier: sandbox
   tags:
-    MODERN: ""
+    MODERN: "true"
   properties:
     ci:
       codebase:
