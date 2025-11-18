@@ -76,6 +76,14 @@ pipeline:
           deploymentType: Kubernetes
           service:
             serviceRef: TimeDateService
+            serviceInputs:
+              serviceDefinition:
+                type: Kubernetes
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: <+input>
+                      sources: <+input>
           environment:
             environmentRef: DEV
             deployToAll: false
@@ -112,4 +120,3 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
-  description: This pipeline was updated by Harness AI on 2025-08-05 15:52:31 UTC by anthony.pahl@harness.io.
