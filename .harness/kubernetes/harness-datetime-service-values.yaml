@@ -1,3 +1,2 @@
-#image: ajpahl1008/harness-datetime-service:1.<+pipeline.sequenceId>
-image: <+artifacts.primary.image>:<+artifacts.primary.tag>
+image: ajpahl1008/harness-datetime-service:1.<+pipeline.sequenceId>
 
