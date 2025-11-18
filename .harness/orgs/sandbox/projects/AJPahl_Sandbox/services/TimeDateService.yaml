@@ -7,7 +7,7 @@ service:
     spec:
       manifests:
         - manifest:
-            identifier: TimeDateServiceManifest
+            identifier: k8sManifest
             type: K8sManifest
             spec:
               store:
@@ -16,14 +16,22 @@ service:
                   connectorRef: ajgithubconnector
                   gitFetchType: Branch
                   paths:
-                    - .harness/kubernetes/harness-datetime-service-deployment.yaml
-                    - .harness/kubernetes/harness-datetime-service-deployment-service.yaml
+                    - k8s/
                   repoName: harness-datetime-service
                   branch: main
               valuesPaths:
-                - .harness/kubernetes/harness-datetime-service-values.yaml
+                - k8s/values.yaml
               skipResourceVersioning: false
               enableDeclarativeRollback: false
       artifacts:
-        primary: {}
+        primary:
+          primaryArtifactRef: <+input>.allowedValues()
+          sources:
+            - spec:
+                connectorRef: dockerHub
+                imagePath: ajpahl1008/harness-datetime-service
+                tag: <+input>
+              identifier: harnessdatetimeservice
+              type: DockerRegistry
     type: Kubernetes
+  tags: {}
