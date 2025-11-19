@@ -82,7 +82,7 @@ pipeline:
                 spec:
                   artifacts:
                     primary:
-                      primaryArtifactRef: <+input>.allowedValues()
+                      primaryArtifactRef: <+input>
                       sources: <+input>
           environment:
             environmentRef: DEV
