@@ -43,9 +43,12 @@ pipeline:
                               imagePullPolicy: IfNotPresent
                         - step:
                             type: Test
-                            name: Test_1
+                            name: RunWithTests
                             identifier: Test_1
-                            spec: {}
+                            spec:
+                              shell: Sh
+                              command: gradle build
+                              intelligenceMode: true
               - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
