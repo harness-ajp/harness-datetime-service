@@ -1,6 +1,6 @@
 launchType: FARGATE
-serviceName: <+stage.variables.serviceName>
-desiredCount: <+stage.variables.desiredCount>
+serviceName: TEST_SERVICE
+desiredCount: 1
 networkConfiguration:
   awsvpcConfiguration:
     securityGroups:
