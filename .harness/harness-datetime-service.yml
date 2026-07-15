@@ -113,5 +113,4 @@ pipeline:
               action:
                 type: StageRollback
         when:
-          pipelineStatus: All
-          condition: "false"
+          pipelineStatus: Success
