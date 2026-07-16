@@ -114,3 +114,5 @@ pipeline:
                 type: StageRollback
         when:
           pipelineStatus: Success
+        delegateSelectors:
+          - rancher-dd-k3d-delegate-ajax
