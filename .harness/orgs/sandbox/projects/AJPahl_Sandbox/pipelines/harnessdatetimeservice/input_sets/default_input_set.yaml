@@ -1,0 +1,14 @@
+inputSet:
+  pipeline:
+    identifier: harnessdatetimeservice
+    properties:
+      ci:
+        codebase:
+          build:
+            spec:
+              branch: main
+            type: branch
+  name: default_input_set
+  identifier: default_input_set
+  orgIdentifier: sandbox
+  projectIdentifier: AJPahl_Sandbox
