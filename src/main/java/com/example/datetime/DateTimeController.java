@@ -13,15 +13,23 @@ import java.util.Map;
 @RestController
 public class DateTimeController {
 
+    private final FeatureFlagService featureFlagService;
+
+    public DateTimeController(FeatureFlagService featureFlagService) {
+        this.featureFlagService = featureFlagService;
+    }
+
     @GetMapping("/api/now")
     public String getCurrentDateTime() throws Exception {
         Map<String, String> response = new HashMap<>();
         response.put("datetime", ZonedDateTime.now().toString());
 
-        ZonedDateTime original = ZonedDateTime.now(); // Current time in system timezone
-        ZonedDateTime newTime = original.withZoneSameInstant(ZoneId.of("Pacific/Fiji")); // +12 from UTC
+        if (featureFlagService.isDarkModeEnabled()) {
+            ZonedDateTime original = ZonedDateTime.now(); // Current time in system timezone
+            ZonedDateTime newTime = original.withZoneSameInstant(ZoneId.of("Pacific/Fiji")); // +12 from UTC
 
-        response.put("darkSide", newTime.toString());
+            response.put("darkSide", newTime.toString());
+        }
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
